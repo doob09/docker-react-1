@@ -4,8 +4,8 @@ services:
 
 #build dev app image on Travis 
 before_install:
-  - docker build -t pv/react-docker -f dockerfile.dev .
+  - docker build -t doob/docker-react-1 -f dockerfile.dev .
 
 #do a test
 script:
-  - docker run pv/react_docker npm run test -- --coverage
+  - docker run doob/docker-react-1 npm run test -- --coverage
