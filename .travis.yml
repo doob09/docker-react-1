@@ -8,4 +8,20 @@ before_install:
 
 #do a test
 script:
-  - docker run doob/docker-react-1 npm run test -- --coverage
+  - docker run doob/docker-react-1 npm run test 
+
+# deploy:
+#   provider: elasticbeanstalk
+#   region: "amazon-region-elsticebean-app"
+#   app: "travis-app-name"
+#   env: "Docker-env"
+#   #copy code -> s3 bucket -> amazon repo
+#   # s3 is created when elasticbeanstalk app created
+#   bucket_name: "eslaticbeanstalk-amazon-region-s3-name" 
+#   bucket_path: "travis-app-name"
+#   #only if master branch changed
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key:
+#     secret: "$AWS_SECRET_KEY"
