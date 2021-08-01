@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web-front:
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    ports:
+      - "3001:3000"
+    volumes:
+        #mount node_modules from container with ref of host system
+      - /app/node_modules
+      # ref current dir to container /app
+      - .:/app
+  #second service for testing
+  test-case:
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    #overwrite command at start
+    command: ["npm","run","test"]
