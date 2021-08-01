@@ -8,7 +8,7 @@ before_install:
 
 #do a test
 script:
-  - docker run doob/docker-react-1 npm run test -- --coverage
+  - docker run doob/docker-react-1 npm run test 
 
 # deploy:
 #   provider: elasticbeanstalk
